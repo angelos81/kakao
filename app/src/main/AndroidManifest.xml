@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hanbit.kakao">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".presentation.member.RegistMemberActivity" />
+        <activity android:name=".presentation.member.MemberListActivity" />
+        <activity android:name=".presentation.member.SearchMemberActivity" />
+        <activity android:name=".presentation.member.ModifyMemberActivity" />
+        <activity android:name=".presentation.member.UnregistMemberActivity" />
+        <activity android:name=".presentation.member.LoginActivity" />
+        <activity android:name=".presentation.message.DeleteMessageActivity" />
+        <activity android:name=".presentation.message.UpdateMessageActivity" />
+        <activity android:name=".presentation.message.MessageListActivity" />
+        <activity android:name=".presentation.message.WriteMessageActivity" />
+        <activity android:name=".presentation.member.MemberDetailActivity"></activity>
+    </application>
+
+</manifest>
