@@ -61,11 +61,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void modify(MemberBean param) {
-
+        dao.update(param);
     }
 
     @Override
     public void unregist(String id) {
-
+        dao.delete(id);
     }
 }

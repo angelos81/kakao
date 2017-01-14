@@ -31,6 +31,7 @@ public class MemberAdapter extends BaseAdapter {
             R.drawable.jellybean,
             R.drawable.kitkat,
             R.drawable.lollipop
+
     };
 
     public MemberAdapter(ArrayList<MemberBean> list, Context context) {
@@ -40,12 +41,12 @@ public class MemberAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return list.size();
+        return list.size();     //멤버 총 인원(= adapter count)
     }
 
     @Override
     public Object getItem(int i) {
-        return list.get(i);
+        return list.get(i);     //멤버 instance (내부적으로 for 루프)
     }
 
     @Override
@@ -68,7 +69,9 @@ public class MemberAdapter extends BaseAdapter {
             holder = (ViewHolder) v.getTag();
         }
 
-
+        holder.ivPhoto.setImageResource(photos[i]);
+        holder.tvName.setText(list.get(i).getName());
+        holder.tvPhone.setText(list.get(i).getPhone());
 
         return v;
     }

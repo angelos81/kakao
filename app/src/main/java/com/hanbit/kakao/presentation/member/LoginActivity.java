@@ -43,8 +43,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         String id = etID.getText().toString();
         String pass = etPass.getText().toString();
-        Log.d("넘어온 ID:",id);
-        Log.d("넘어온 Pass:",pass);
+        Log.d("DB_ID:",id);
+        Log.d("DB_Pass:",pass);
 
         member.setId(id);
         member.setPw(pass);

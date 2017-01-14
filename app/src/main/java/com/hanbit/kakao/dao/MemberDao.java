@@ -71,9 +71,31 @@ public class MemberDao extends SQLiteOpenHelper{
 
     public ArrayList<MemberBean> selectAll() {                        //realAll
         ArrayList<MemberBean> list = new ArrayList<MemberBean>();
-        String sql = "";
+        String sql = "SELECT id, pw, name, email, phone, photo, addr FROM Member;";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
+
+        if(cursor != null){
+            Log.d("Member", "Exist~!!!");
+
+            cursor.moveToFirst();
+        }
+
+        //일반적인 while문을 적용시 첫번째 cursor의 값을 무시하므로 do~while문을 사용해야 함
+        do{
+            MemberBean member = new MemberBean();
+            member.setId(cursor.getString(0));
+            member.setPw(cursor.getString(1));
+            member.setName(cursor.getString(2));
+            member.setEmail(cursor.getString(3));
+            member.setPhone(cursor.getString(4));
+            member.setPhoto(cursor.getString(5));
+            member.setAddr(cursor.getString(6));
+
+            list.add(member);
+        }while (cursor.moveToNext());
+
+        Log.d("Member Count", String.valueOf(list.size()));
 
         return list;
     }
@@ -89,9 +111,20 @@ public class MemberDao extends SQLiteOpenHelper{
 
     public MemberBean selectById(String id) {                    //readOne
         MemberBean member = new MemberBean();
-        String sql = "";
+        String sql = "SELECT id, pw, name, email, phone, photo, addr FROM Member WHERE id = '"+id+"';";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(sql, null);
+        if(cursor.moveToNext()){
+            member.setId(cursor.getString(0));
+            member.setPw(cursor.getString(1));
+            member.setName(cursor.getString(2));
+            member.setEmail(cursor.getString(3));
+            member.setPhone(cursor.getString(4));
+            member.setPhoto(cursor.getString(5));
+            member.setAddr(cursor.getString(6));
+        }else{
+            member.setId("fail");
+        }
 
         return member;
     }
@@ -130,7 +163,14 @@ public class MemberDao extends SQLiteOpenHelper{
     }
 
     public void update(MemberBean param) {                       //updateMember
-        String sql = "";
+        String sql = "UPDATE MEMBER\n" +
+                    "   SET pw = '"+param.getPw()+"',\n" +
+                    "       name = '"+param.getName()+"',\n" +
+                    "       email = '"+param.getEmail()+"',\n" +
+                    "       phone = '"+param.getPhone()+"',\n" +
+                    "       photo = '"+param.getPhoto()+"',\n" +
+                    "       addr = '"+param.getAddr()+"'\n" +
+                    "WHERE id = '"+param.getId()+"';";
         SQLiteDatabase db = this.getWritableDatabase();     //나에게 있는 hanbit.db를 writable형태로 가져와라
         db.execSQL(sql);
         db.close();
