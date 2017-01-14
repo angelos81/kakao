@@ -1,6 +1,5 @@
 package com.hanbit.kakao.presentation.member;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -53,15 +52,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             case R.id.btLogin:
                 boolean flag =  service.login(member);
+
                 if(flag){
-                    Toast.makeText(LoginActivity.this,"SUCCESS",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, ListActivity.class));
+                    Toast.makeText(this,"LOGIN SUCCESS",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, MemberListActivity.class));
                 }else{
-                    Toast.makeText(LoginActivity.this,"FAIL",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"LOGIN FAIL",Toast.LENGTH_SHORT).show();
+                    etID.setText("");
+                    etPass.setText("");
                 }
+
                 break;
             case R.id.btCancel:
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                startActivity(new Intent(this, MainActivity.class));
                 break;
         }
     }

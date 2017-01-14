@@ -61,7 +61,9 @@ public class MemberDao extends SQLiteOpenHelper{
     }
 
     public void insert(MemberBean param) {                       //createMember
-        String sql = "";
+        String sql = "INSERT\n" +
+                    "  INTO MEMBER(id, pw, name, email, phone, photo, addr)\n" +
+                    "VALUES('"+param.getId()+"', '"+param.getPw()+"', '"+param.getName()+"', '"+param.getEmail()+"', '"+param.getPhone()+"', '"+param.getPhoto()+"', '"+param.getAddr()+"');";
         SQLiteDatabase db = this.getWritableDatabase();     //나에게 있는 hanbit.db를 writable형태로 가져와라
         db.execSQL(sql);
         db.close();
@@ -135,7 +137,9 @@ public class MemberDao extends SQLiteOpenHelper{
     }
 
     public void delete(String id) {                            //deleteMember
-        String sql = "";
+        String sql = "DELETE\n" +
+                    "  FROM MEMBER\n" +
+                    " WHERE id = '"+id+"';";
         SQLiteDatabase db = this.getWritableDatabase();     //나에게 있는 hanbit.db를 writable형태로 가져와라
         db.execSQL(sql);
         db.close();

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9e006"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/menu_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KAKAO"
+        android:textSize="23dp"
+        android:textColor="#1b1b1b"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/menu_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="카카오스토리"
+        android:textSize="14dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:background="#f9e006"/>
+    <Button
+        android:id="@+id/menu_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textSize="14dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_toLeftOf="@id/menu_help"
+        android:background="#f9e006"/>
+
+</RelativeLayout>
