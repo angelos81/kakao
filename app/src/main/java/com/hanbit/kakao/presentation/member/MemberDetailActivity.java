@@ -92,6 +92,13 @@ public class MemberDetailActivity extends AppCompatActivity implements View.OnCl
                 phone.dial(member.getPhone());
                 break;
             case R.id.btMap:
+                //임시로 주소정보 설정(신촌역)
+                member.setAddr("37.5597680,126.9423080");
+
+                //구글맵 연동
+                intent = new Intent(MemberDetailActivity.this, MapsActivity.class);
+                intent.putExtra("position", member.getAddr());
+                startActivity(intent);
 
                 break;
             case R.id.btMessage:
