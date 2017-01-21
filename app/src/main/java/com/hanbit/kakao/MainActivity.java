@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hanbit.kakao.presentation.member.LoginActivity;
+import com.hanbit.kakao.presentation.member.MemberListActivity;
 import com.hanbit.kakao.presentation.member.RegistMemberActivity;
 import com.hanbit.kakao.util.BackPressCloseHandler;
 
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.menu_help:
                 //this.startActivity(new Intent(this, null));
+                //임시로 작성
+                this.startActivity(new Intent(this, MemberListActivity.class));
                 Toast.makeText(this, "kakao story...", Toast.LENGTH_SHORT).show();
                 break;
         }

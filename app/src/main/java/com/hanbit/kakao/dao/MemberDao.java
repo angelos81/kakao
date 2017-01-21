@@ -44,15 +44,15 @@ public class MemberDao extends SQLiteOpenHelper{
                 ");");
 
 /*        db.execSQL("INSERT INTO Member(id, pw, name, email, phone, photo, addr)\n" +
-                "VALUES('hong', '1', '홍길동', 'hong@test.com', '010-1234-5678', 'default.jpg', '서울');");
+                "VALUES('hong', '1', '홍길동', 'hong@test.com', '010-1234-5678', 'cupcake.jpg', '서울');");
         db.execSQL("INSERT INTO Member(id, pw, name, email, phone, photo, addr)\n" +
-                "VALUES('kim', '1', '김유신', 'kim@test.com', '010-1234-5678', 'default.jpg', '서울');");
+                "VALUES('kim', '1', '김유신', 'kim@test.com', '010-1234-5678', 'donut.jpg', '서울');");
         db.execSQL("INSERT INTO Member(id, pw, name, email, phone, photo, addr)\n" +
-                "VALUES('yumi', '1', '유미', 'yumi@test.com', '010-1234-5678', 'default.jpg', '서울');");
+                "VALUES('yumi', '1', '유미', 'yumi@test.com', '010-1234-5678', 'eclair.jpg', '서울');");
         db.execSQL("INSERT INTO Member(id, pw, name, email, phone, photo, addr)\n" +
-                "VALUES('lee', '1', '이순신', 'lee@test.com', '010-1234-5678', 'default.jpg', '서울');");
+                "VALUES('lee', '1', '이순신', 'lee@test.com', '010-1234-5678', 'froyo.jpg', '서울');");
         db.execSQL("INSERT INTO Member(id, pw, name, email, phone, photo, addr)\n" +
-                "VALUES('kang', '1', '강강술래', 'kang@test.com', '010-1234-5678', 'default.jpg', '서울');");*/
+                "VALUES('kang', '1', '강강술래', 'kang@test.com', '010-1234-5678', 'icecream.jpg', '서울');");*/
     }
 
     @Override

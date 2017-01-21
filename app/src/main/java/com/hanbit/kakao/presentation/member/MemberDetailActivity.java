@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hanbit.kakao.R;
@@ -18,6 +19,7 @@ public class MemberDetailActivity extends AppCompatActivity implements View.OnCl
     TextView tvID, tvPass, tvName, tvEmail, tvPhone, tvPhoto, tvAddr;
     Button btCall, btMap, btMessage, btUpdate, btDelete, btList;
     Phone phone;
+    ImageView ivPhoto;
 
     MemberService service;
     MemberBean member;
@@ -42,6 +44,7 @@ public class MemberDetailActivity extends AppCompatActivity implements View.OnCl
         tvPhone = (TextView) findViewById(R.id.tvPhone);
         tvPhoto = (TextView) findViewById(R.id.tvPhoto);
         tvAddr = (TextView) findViewById(R.id.tvAddr);
+        ivPhoto = (ImageView) findViewById(R.id.ivPhoto);
 
         btCall = (Button) findViewById(R.id.btCall);
         btMap = (Button) findViewById(R.id.btMap);
@@ -58,6 +61,10 @@ public class MemberDetailActivity extends AppCompatActivity implements View.OnCl
         tvPhoto.setText(member.getPhoto());
         tvAddr.setText(member.getAddr());
 
+        //getPackageName() : com.hanbit.kakao로 지칭
+        int img = getResources().getIdentifier(this.getPackageName()+":drawable/" + "donut", null, null);
+        Log.d("Photo", member.getPhoto());
+        ivPhoto.setImageDrawable(getResources().getDrawable(img, getApplicationContext().getTheme()));
 
         btCall.setOnClickListener(this);
         btMap.setOnClickListener(this);
@@ -73,7 +80,7 @@ public class MemberDetailActivity extends AppCompatActivity implements View.OnCl
             case R.id.btCall:
                 Log.d("Phone Call", member.getPhone());
 
-                phone.directCall("tel:010-9075-3070");
+                phone.dial(member.getPhone());
                 break;
             case R.id.btMap:
 
