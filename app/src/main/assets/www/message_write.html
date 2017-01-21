@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <textarea id="area_box" class="form-control" rows="10" disabled="disabled"></textarea>
+        <input type="text" id="input_box" class="form-control" placeholder="Text input">
+        <button type="submit" id="send_btn" onclick="test();" class="btn btn-primary">전송</button>
+        <button type="button" class="btn btn-primary" onclick="showToast('Hello World~!!!');">Toast Test</button>
+        <script>
+            function showToast(message){
+                Hybrid.showToast(message);
+                document.getElementById('area_box').innerHTML = document.getElementById('input_box').value;
+            }
+
+            function savePreferences(key, value){
+                Hybrid.savePreferences(key, value);
+            }
+
+            function vibrate(milliseconds){
+                Hybrid.vibrate(milliseconds);
+            }
+
+            function sendSMS(phone, message){
+                Hybrid.sendSMS(phone, message);
+            }
+
+            function test(){
+                showToast(document.getElementById('input_box').value);
+            }
+
+        </script>
+    </body>
+</html>

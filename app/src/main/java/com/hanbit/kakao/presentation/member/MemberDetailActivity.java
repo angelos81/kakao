@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.hanbit.kakao.R;
 import com.hanbit.kakao.domain.MemberBean;
+import com.hanbit.kakao.presentation.message.WriteMessageActivity;
 import com.hanbit.kakao.service.MemberService;
 import com.hanbit.kakao.service.MemberServiceImpl;
 import com.hanbit.kakao.util.Phone;
@@ -61,8 +62,13 @@ public class MemberDetailActivity extends AppCompatActivity implements View.OnCl
         tvPhoto.setText(member.getPhoto());
         tvAddr.setText(member.getAddr());
 
+
+        //이미지 테스트를 해봐야 함(확장자가 있는 경우 에러)
+        String tmpImg = member.getPhoto().substring(0, member.getPhoto().indexOf("."));
+        Log.d("tmpImg fileName", tmpImg);
+
         //getPackageName() : com.hanbit.kakao로 지칭
-        int img = getResources().getIdentifier(this.getPackageName()+":drawable/" + "donut", null, null);
+        int img = getResources().getIdentifier(this.getPackageName()+":drawable/" + tmpImg, null, null);
         Log.d("Photo", member.getPhoto());
         ivPhoto.setImageDrawable(getResources().getDrawable(img, getApplicationContext().getTheme()));
 
@@ -76,20 +82,28 @@ public class MemberDetailActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
+        Intent intent = null;
+
         switch (view.getId()){
             case R.id.btCall:
                 Log.d("Phone Call", member.getPhone());
 
+                //phone.directCall(member.getPhone());
                 phone.dial(member.getPhone());
                 break;
             case R.id.btMap:
 
                 break;
             case R.id.btMessage:
+                //this.startActivity(new Intent(this, WriteMessageActivity.class));
+
+                intent = new Intent(MemberDetailActivity.this, WriteMessageActivity.class);
+                intent.putExtra("phone", member.getPhone());
+                startActivity(intent);
 
                 break;
             case R.id.btUpdate:
-                Intent intent = new Intent(MemberDetailActivity.this, ModifyMemberActivity.class);
+                intent = new Intent(MemberDetailActivity.this, ModifyMemberActivity.class);
                 intent.putExtra("id", member.getId());
                 startActivity(intent);
                 break;
